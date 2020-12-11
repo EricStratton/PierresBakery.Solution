@@ -42,18 +42,19 @@ namespace BakeryOrder
       Console.WriteLine("How many pastries would you like?"); // Attempt catch block
       string strPastryOrder = Console.ReadLine();
       int pastryOrder;
-        try 
-        {
-          int.Parse(strPastryOrder);
-        }
-        catch (NotANumberException e)
-        {
-          Console.WriteLine($"Sorry, that doesn't seem to be a number. Try again: {e}\n");
-        }
-        finally
-        {
-          pastryOrder = int.Parse(strPastryOrder);
-        }
+          try 
+          {
+            int.Parse(strPastryOrder);
+          }
+          catch (FormatException e)
+          {
+            Console.WriteLine($"Sorry, that doesn't seem to be a number. Please try again: {e}\n");
+            PastryOrder();
+          }
+          finally
+          {
+            pastryOrder = int.Parse(strPastryOrder);
+          }
       PastryOrder newPastryOrder = new PastryOrder(pastryOrder);
       Console.WriteLine($"You've ordered {newPastryOrder.Pastries} pastries, is this correct? (Y/N)");
       string correctPastries = Console.ReadLine();
@@ -82,7 +83,20 @@ namespace BakeryOrder
       Console.WriteLine("Loaves of bread cost $5 each, but if you buy 2 we'll throw in a third free, applicable on any order size.");
       Console.WriteLine("How many loaves of bread would you like?"); // Attempt catch block
       string strBreadOrder = Console.ReadLine();
-      int breadOrder = int.Parse(strBreadOrder);
+      int breadOrder;
+          try 
+          {
+            int.Parse(strBreadOrder);
+          }
+          catch (FormatException e)
+          {
+            Console.WriteLine($"Sorry, that doesn't appear to be a number. Please try again: {e}\n");
+            PastryOrder();
+          }
+          finally
+          {
+            breadOrder = int.Parse(strBreadOrder);
+          }
       BreadOrder newBreadOrder = new BreadOrder(breadOrder);
       Console.WriteLine($"You've ordered {newBreadOrder.Loaves} loaves of bread, is this correct? (Y/N)");
       string correctLoaves = Console.ReadLine();
@@ -105,9 +119,9 @@ namespace BakeryOrder
       }
     }
 
-    public class NotANumberException: Exception 
-    {
-      public NotANumberException(string message): base(message) {}
-    }
+    // public class NotANumberException: Exception 
+    // {
+    //   public NotANumberException(string message): base(message) {}
+    // }
   }
 }
