@@ -17,7 +17,7 @@ namespace Pastry.Tests
     public void GetPastryOrder_ReturnsPastryOrder_Int()
     {
       int pastryOrder = 3;
-      PastryOrder newPastryOrder = new PastryOrder(2);
+      PastryOrder newPastryOrder = new PastryOrder(3);
       int result = newPastryOrder.Pastries;
       Assert.AreEqual(pastryOrder, result);
     }
