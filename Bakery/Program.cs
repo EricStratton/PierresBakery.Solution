@@ -38,7 +38,7 @@ namespace BakeryOrder
     public static void PastryOrder()
     {
       Console.WriteLine("Our pastries are some of the best in town!");
-      Console.WriteLine("Pastries cost 2$ each, or 5$ for 3, deal can be applied to any amount.");
+      Console.WriteLine("Pastries cost 2$ each, or 5$ for 3, deal can be applied to any order size.");
       Console.WriteLine("How many pastries would you like?"); // Attempt catch block
       string strPastryOrder = Console.ReadLine();
       int pastryOrder;
@@ -48,7 +48,7 @@ namespace BakeryOrder
           }
           catch (FormatException e)
           {
-            Console.WriteLine($"Sorry, that doesn't seem to be a number. Please try again: {e}\n");
+            Console.WriteLine($"Sorry, that doesn't seem to be a number. Please try again. Error: \n{e}\n");
             PastryOrder();
           }
           finally
@@ -80,7 +80,7 @@ namespace BakeryOrder
     public static void BreadOrder()
     {
       Console.WriteLine("Okay, grab some of our world famous bread!");
-      Console.WriteLine("Loaves of bread cost $5 each, but if you buy 2 we'll throw in a third free, applicable on any order size.");
+      Console.WriteLine("Loaves of bread cost $5 each, but if you buy 2 we'll throw in a 3rd free, applicable on any order size.");
       Console.WriteLine("How many loaves of bread would you like?"); // Attempt catch block
       string strBreadOrder = Console.ReadLine();
       int breadOrder;
@@ -90,7 +90,7 @@ namespace BakeryOrder
           }
           catch (FormatException e)
           {
-            Console.WriteLine($"Sorry, that doesn't appear to be a number. Please try again: {e}\n");
+            Console.WriteLine($"Sorry, that doesn't seem to be a number. Please try again. Error: \n{e}\n");
             PastryOrder();
           }
           finally
