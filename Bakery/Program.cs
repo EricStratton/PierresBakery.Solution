@@ -39,9 +39,21 @@ namespace BakeryOrder
     {
       Console.WriteLine("Our pastries are some of the best in town!");
       Console.WriteLine("Pastries cost 2$ each, or 5$ for 3, deal can be applied to any amount.");
-      Console.WriteLine("How many pastries would you like?");
+      Console.WriteLine("How many pastries would you like?"); // Attempt catch block
       string strPastryOrder = Console.ReadLine();
-      int pastryOrder = int.Parse(strPastryOrder);
+      int pastryOrder;
+        try 
+        {
+          int.Parse(strPastryOrder);
+        }
+        catch (NotANumberException e)
+        {
+          Console.WriteLine($"Sorry, that doesn't seem to be a number. Try again: {e}\n");
+        }
+        finally
+        {
+          pastryOrder = int.Parse(strPastryOrder);
+        }
       PastryOrder newPastryOrder = new PastryOrder(pastryOrder);
       Console.WriteLine($"You've ordered {newPastryOrder.Pastries} pastries, is this correct? (Y/N)");
       string correctPastries = Console.ReadLine();
@@ -68,7 +80,7 @@ namespace BakeryOrder
     {
       Console.WriteLine("Okay, grab some of our world famous bread!");
       Console.WriteLine("Loaves of bread cost $5 each, but if you buy 2 we'll throw in a third free, applicable on any order size.");
-      Console.WriteLine("How many loaves of bread would you like?");
+      Console.WriteLine("How many loaves of bread would you like?"); // Attempt catch block
       string strBreadOrder = Console.ReadLine();
       int breadOrder = int.Parse(strBreadOrder);
       BreadOrder newBreadOrder = new BreadOrder(breadOrder);
@@ -91,6 +103,11 @@ namespace BakeryOrder
         Console.WriteLine("Oops, something went wrong. Let's try again.\n");
         BreadOrder();
       }
+    }
+
+    public class NotANumberException: Exception 
+    {
+      public NotANumberException(string message): base(message) {}
     }
   }
 }
