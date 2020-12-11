@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using Pastry.Models;
 
 namespace Pastry.Tests
@@ -20,6 +21,15 @@ namespace Pastry.Tests
       PastryOrder newPastryOrder = new PastryOrder(3);
       int result = newPastryOrder.Pastries;
       Assert.AreEqual(pastryOrder, result);
+    }
+
+    [TestMethod]
+    public void GetCost_ReturnsPastryOrderPrice_Int()
+    {
+      PastryOrder newPastryOrder = new PastryOrder(13);
+      int cost = newPastryOrder.GetCost(newPastryOrder.Pastries);
+      Console.WriteLine(cost);
+      Assert.AreEqual(22, cost);
     }
   }
 }
