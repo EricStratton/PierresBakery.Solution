@@ -4,12 +4,11 @@ namespace Bread.Models
 {
   public class BreadOrder
   {
+    public int Loaves { get; }
 
-    // public int Loaves { get; set; }
-
-    // public int Bread(int loaves)
-    // {
-      
-    // }
+    public BreadOrder(int loaves)
+    {
+      Loaves = loaves;
+    }
   }
 }
