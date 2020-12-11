@@ -18,7 +18,7 @@ namespace Bread.Tests
     public void GetBreadOrder_ReturnsBreadOrder_Int()
     {
       int breadOrder = 3;
-      BreadOrder newBreadOrder = new BreadOrder(2);
+      BreadOrder newBreadOrder = new BreadOrder(3);
       int result = newBreadOrder.Loaves;
       Assert.AreEqual(breadOrder, result);
     }
