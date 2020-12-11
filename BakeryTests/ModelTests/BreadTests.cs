@@ -29,7 +29,7 @@ namespace Bread.Tests
       BreadOrder newBreadOrder = new BreadOrder(13);
       int cost = newBreadOrder.GetCost(newBreadOrder.Loaves);
       Console.WriteLine(cost);
-      Assert.AreEqual(40, cost);
+      Assert.AreEqual(45, cost);
     }
   }
 }
