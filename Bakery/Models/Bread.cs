@@ -14,13 +14,24 @@ namespace Bread.Models
     public int GetCost(int loaves)
     {
       int cost = 0;
+      int discountLoaves = 0;
+      if (loaves % 3 == 0)
+      {
+        discountLoaves = loaves / 3;
+      }
+      else
+      {
+        int remainder = loaves % 3;
+        discountLoaves = (loaves - remainder) / 3;
+      }
+
       if (loaves < 2)
       {
-        cost = loaves*5;
+        cost = loaves * 5;
       }
       else if (loaves >= 2)
       {
-        cost = (loaves*5)*(2/3);
+        cost = (loaves - discountLoaves) * 5;
       }
       return cost;
     }

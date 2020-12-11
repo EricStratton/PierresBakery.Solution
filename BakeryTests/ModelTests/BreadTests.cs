@@ -26,11 +26,10 @@ namespace Bread.Tests
     [TestMethod]
     public void GetCost_ReturnsBreadOrderPrice_Int()
     {
-      BreadOrder newBreadOrder = new BreadOrder(3);
-      Console.WriteLine(newBreadOrder.Loaves);
+      BreadOrder newBreadOrder = new BreadOrder(13);
       int cost = newBreadOrder.GetCost(newBreadOrder.Loaves);
       Console.WriteLine(cost);
-      Assert.AreEqual(15, cost);
+      Assert.AreEqual(40, cost);
     }
   }
 }
