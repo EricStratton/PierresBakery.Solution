@@ -81,6 +81,8 @@ Do not hesitate to contact me at:
 - _VisualStudio Code_
 - _C#_
 - _.NET Core 2.2_
+- _Git_
+- _GitHub_
 
 ## Licensing
 
