@@ -24,11 +24,18 @@ namespace Bread.Tests
     }
 
     [TestMethod]
-    public void GetCost_ReturnsBreadOrderPrice_Int()
+    public void GetCost_ReturnsBreadOrderPriceWithoutDiscount_Int()
+    {
+      BreadOrder newBreadOrder = new BreadOrder(1);
+      int cost = newBreadOrder.GetCost(newBreadOrder.Loaves);
+      Assert.AreEqual(5, cost);
+    }
+
+    [TestMethod]
+    public void GetCost_ReturnsBreadOrderPriceWithDiscount_Int()
     {
       BreadOrder newBreadOrder = new BreadOrder(13);
       int cost = newBreadOrder.GetCost(newBreadOrder.Loaves);
-      Console.WriteLine(cost);
       Assert.AreEqual(45, cost);
     }
   }
