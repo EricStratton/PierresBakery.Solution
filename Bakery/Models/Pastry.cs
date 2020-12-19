@@ -33,7 +33,7 @@ namespace Pastry.Models
       {
         cost = (pastries - discountPastries) * 2 + discountPastries;
       }
-      return cost+1;
+      return cost;
     }
   }
 }
