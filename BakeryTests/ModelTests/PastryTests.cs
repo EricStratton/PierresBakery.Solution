@@ -24,11 +24,18 @@ namespace Pastry.Tests
     }
 
     [TestMethod]
-    public void GetCost_ReturnsPastryOrderPrice_Int()
+    public void GetCost_ReturnsPastryOrderPriceWithoutDiscount_Int()
+    {
+      PastryOrder newPastryOrder = new PastryOrder(2);
+      int cost = newPastryOrder.GetCost(newPastryOrder.Pastries);
+      Assert.AreEqual(4, cost);
+    }
+
+    [TestMethod]
+    public void GetCost_ReturnsPastryOrderPriceWithDiscount_Int()
     {
       PastryOrder newPastryOrder = new PastryOrder(13);
       int cost = newPastryOrder.GetCost(newPastryOrder.Pastries);
-      Console.WriteLine(cost);
       Assert.AreEqual(22, cost);
     }
   }
