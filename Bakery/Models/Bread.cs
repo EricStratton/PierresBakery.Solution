@@ -33,7 +33,7 @@ namespace Bread.Models
       {
         cost = (loaves - discountLoaves) * 5;
       }
-      return cost+1;
+      return cost;
     }
 
   }
